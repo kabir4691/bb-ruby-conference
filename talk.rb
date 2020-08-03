@@ -6,4 +6,8 @@ class Talk
     @name = name
     @minutes = minutes
   end
+
+  def to_s
+    return "#{@name} #{@minutes} min"
+  end
 end

@@ -19,6 +19,17 @@ class Session
     return true
   end
 
+  def timetable
+    result = "#{@name} session time-table\n"
+    talk_start_time = @start_time
+    @talks.each do |talk| 
+        result += "\n#{talk_start_time.strftime("%I:%M %p")} #{talk}"
+        talk_start_time += (talk.minutes * 60)
+    end
+
+    return result
+  end
+
   def can_add_talk(talk)
     return talk.minutes <= @available_minutes
   end
